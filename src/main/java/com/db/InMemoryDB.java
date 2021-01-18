@@ -25,15 +25,16 @@ public class InMemoryDB {
 	}
 
 	public void addCardDetials(CreditCard card) throws CardAlreadyExistsException {
-		if(checkIfCardExists(card.getCardNumber()))
+		if (checkIfCardExists(card.getCardNumber()))
 			throw new CardAlreadyExistsException(" card by this number already exists , cannot add card");
 		UserAccountDetails userDetails = new UserAccountDetails(card, DEFAULT_AMOUNT);
 		inMemoryDB.put(card.getCardNumber(), userDetails);
 	}
-	
+
 	public boolean checkIfCardExists(String cardNumber) {
 		return inMemoryDB.containsKey(cardNumber);
 	}
+
 	public static void main(String[] args) {
 		System.out.println(DEFAULT_AMOUNT);
 	}
