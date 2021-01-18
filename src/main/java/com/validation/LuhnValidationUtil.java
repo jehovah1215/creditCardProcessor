@@ -1,8 +1,12 @@
 package com.validation;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.exceptions.InvalidCardNumberException;
 
 public class LuhnValidationUtil {
+	private static Logger logger = LoggerFactory.getLogger(LuhnValidationUtil.class);
 
 	public static void validateCreditCardNumber(String cardNumber) throws InvalidCardNumberException {
 
@@ -23,8 +27,12 @@ public class LuhnValidationUtil {
 			sum += ints[i];
 		}
 		if (sum % 10 != 0) {
+			logger.info(" card number is invalid ");
+
 			throw new InvalidCardNumberException("Card validation failed via luhn algorithm");
-		} 
+		}
+		else
+			logger.info(" card number is valid ");
 	}
 
 }
