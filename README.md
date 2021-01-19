@@ -63,6 +63,7 @@
       d. To add a card with invalid card number (expect an exception and look for logs):
            ``` curl -H "Content-Type: application/json" -X POST -d '{"userName":"Steve","cardNumber":"0129990003520800","limit":"£2000"}' http://localhost:8080/addCard
           ```
+	  
       e. To add a card with invalid amount and name (expect an exception and look for logs):
            ``` curl -H "Content-Type: application/json" -X POST -d '{"userName":"@S1teve","cardNumber":"012850003520800","limit":"£20df00"}' http://localhost:8080/addCard
           ```
@@ -70,10 +71,10 @@
        # Sample input-output 
        
            % curl -H "Content-Type: application/json" -X POST -d '{"userName":"Bob","cardNumber":"012850003540600","limit":"£4000"}' http://localhost:8080/addCard
-
+	   % curl -H "Content-Type: application/json" -X POST -d '{"userName":"Steve","cardNumber":"012850003520800","limit":"£2000"}'http://localhost:8080/addCard
            % curl -H GET  http://localhost:8080/getAllCards 
                 
-           ``` [{"creditCardDetails":{"userName":"Bob","cardNumber":"012850003540600","limit":"£4000"},"balance":"£0"}] ```
+           ``` {"cardListResponse":[{"creditCardDetails":{"userName":"Steve","cardNumber":"012850003520800","limit":"£2000"},"balance":"£0"},{"creditCardDetails":{"userName":"Bob","cardNumber":"012850003540600","limit":"£4000"},"balance":"£0"}]} ```
            
   # Choice of technologies : 
             Database : MySQL (to achieve transactional and ACID features.)
