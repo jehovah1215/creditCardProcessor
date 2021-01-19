@@ -36,13 +36,14 @@
  # Follow the steps below to run this application 
   1. Open terminal and run command :
      * git clone git@github.com:jehovah1215/creditCardProcessor.git 
+     * cd creditCardProcessor 
      
                               OR 
      Unzip the the project file attached and navigate to root folder where pom.xml exists.
      
   2. * git checkout master
      
-  3. Navigate to root folder where pom.xml exists if you are not already there and run below command :
+  3. Navigate to root folder where pom.xml exists ()if you are not already there and run below command :
      * mvn clean install
   4. If step results in build success(which ideally should ;) ) proceed with below command :
      * mvn spring-boot:run 
