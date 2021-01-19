@@ -15,6 +15,7 @@ import com.entity.CreditCard;
 import com.entity.UserAccountDetails;
 import com.exceptions.InvalidRequestException;
 import com.requests.AddCardRequest;
+import com.response.GetAllCardsResponse;
 import com.service.CardProcessor;
 import com.validation.RequestValidationUtil;
 
@@ -31,10 +32,12 @@ public class CardProcessController {
 	 * @return
 	 */
 	@GetMapping(value = "/getAllCards", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ArrayList<UserAccountDetails> getAllCreditCardDetails() {
+	public GetAllCardsResponse getAllCreditCardDetails() {
+		GetAllCardsResponse response = new GetAllCardsResponse();
 		logger.info("getting all cards present in DB ");
 		ArrayList<UserAccountDetails> cardList = cardProcessorService.getAllUsers();
-		return cardList;
+		response.setCardListResponse(cardList);
+		return response;
 
 	}
 
