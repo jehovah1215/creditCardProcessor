@@ -20,11 +20,16 @@ import com.validation.RequestValidationUtil;
 
 @RestController
 public class CardProcessController {
-	
-    Logger logger = LoggerFactory.getLogger(CardProcessController.class);
+
+	Logger logger = LoggerFactory.getLogger(CardProcessController.class);
 	@Autowired
 	private CardProcessor cardProcessorService;
 
+	/**
+	 * GET all the accounts
+	 * 
+	 * @return
+	 */
 	@GetMapping(value = "/getAllCards", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ArrayList<UserAccountDetails> getAllCreditCardDetails() {
 		logger.info("getting all cards present in DB ");
@@ -33,6 +38,12 @@ public class CardProcessController {
 
 	}
 
+	/**
+	 * Add a new card
+	 * 
+	 * @param addCardRequest
+	 * @throws InvalidRequestException
+	 */
 	@PostMapping(value = "/addCard", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public void addCreditCard(@RequestBody AddCardRequest addCardRequest) throws InvalidRequestException {
 		RequestValidationUtil.validateAddCardRequest(addCardRequest);

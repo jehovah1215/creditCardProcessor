@@ -24,6 +24,11 @@ public class InMemoryDB {
 		return result;
 	}
 
+	/**
+	 * Add card to DB
+	 * @param card
+	 * @throws CardAlreadyExistsException
+	 */
 	public void addCardDetials(CreditCard card) throws CardAlreadyExistsException {
 		if (checkIfCardExists(card.getCardNumber()))
 			throw new CardAlreadyExistsException(" card by this number already exists , cannot add card");
@@ -31,12 +36,14 @@ public class InMemoryDB {
 		inMemoryDB.put(card.getCardNumber(), userDetails);
 	}
 
+	/**
+	 * Check if card already exists
+	 * @param cardNumber
+	 * @return
+	 */
 	public boolean checkIfCardExists(String cardNumber) {
 		return inMemoryDB.containsKey(cardNumber);
 	}
 
-	public static void main(String[] args) {
-		System.out.println(DEFAULT_AMOUNT);
-	}
 
 }

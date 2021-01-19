@@ -26,7 +26,7 @@ public class CardProcessorServiceImpl implements CardProcessor {
 
 	@Override
 	public void addCreditCard(CreditCard cardDetails) {
-		logger.info(" adding card details with card number  XXXXXXX"+ cardDetails.getCardNumber().substring(7) +" into db " );
+		logger.info(" adding card details with card number  XXXXXXX"+ cardDetails.getCardNumber().substring(8) +" into db " );
 		inMemoryDB.addCardDetials(cardDetails);
 
 	}
